@@ -12,7 +12,7 @@ _Chat. Gift. Automate. Celebrate._
 <p align="center">
   <a href="#getting-started"><img src="https://img.shields.io/badge/Getting%20Started-Guide-blue?style=flat-square" /></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" /></a>
-  <a href="https://github.com/Growth-Loops-Technology/GiftsFlow/stargazers"><img src="https://img.shields.io/github/stars/Growth-Loops-Technology/GiftsFlow?style=flat-square" />
+  <a href="https://github.com/Nurexcoder/giftsflow/stargazers"><img src="https://img.shields.io/github/stars/Nurexcoder/giftsflow?style=flat-square" />
 </a>
 </p>
 
@@ -75,7 +75,7 @@ Gifting is emotional. Systems are complex.
 ## 🛠️ Getting Started
 
 ```bash
-git clone https://github.com/Growth-Loops-Technology/GiftsFlow.git
+git clone https://github.com/Nurexcoder/giftsflow.git
 cd giftsflow
 npm install
 # Configure UPSTASH_VECTOR_REST_URL and UPSTASH_VECTOR_REST_TOKEN in .env

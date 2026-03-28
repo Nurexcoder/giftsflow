@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { groq } from "@ai-sdk/groq";
 import { streamText } from "ai";
 import { searchProducts } from "@/lib/vector/upstash";
 
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
     }
 
     const result = streamText({
-      model: openai("gpt-4o-mini"),
+      model: groq("llama-3.1-8b-instant"),
       system: systemPrompt,
       messages: messages.map(m => ({ role: m.role, content: m.content })),
     });

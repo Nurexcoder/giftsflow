@@ -134,7 +134,7 @@ export default function HomePage() {
             GiftsFlow is part of Growth Loops Labs — empowering students,
             developers, and local businesses through open-source innovation.
           </p>
-          <Link href="https://github.com/Growth-Loops-Technology/GiftsFlow">
+          <Link href="https://github.com/Nurexcoder/giftsflow">
             <Button variant="outline" size="lg">
               Contribute on GitHub
             </Button>
