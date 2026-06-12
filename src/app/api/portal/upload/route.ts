@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
 import * as XLSX from 'xlsx';
 import { z } from "zod";
 import {
@@ -12,6 +11,7 @@ const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
 const ALLOWED_TYPES = [
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "application/vnd.ms-excel",
+  "text/csv",
 ];
 
 
@@ -111,24 +111,6 @@ async function rowToChunkWithMetadata(
 
 export async function POST(request: NextRequest) {
   try {
-    // Check authentication
-    const token = await getToken({ req: request });
-
-    if (!token) {
-      return NextResponse.json(
-        { error: "Unauthorized. Please login first." },
-        { status: 401 }
-      );
-    }
-
-    // Check if user is vendor or admin
-    if (token.role !== "VENDOR" && token.role !== "ADMIN") {
-      return NextResponse.json(
-        { error: "Forbidden. Only vendors and admins can upload products." },
-        { status: 403 }
-      );
-    }
-
     const formData = await request.formData();
     const file = formData.get("file");
     const shopId = formData.get("shopId");
@@ -150,14 +132,15 @@ export async function POST(request: NextRequest) {
     const contentType = file.type;
     const name = file.name.toLowerCase();
 
-    const isExcel =
+    const isSupported =
       name.endsWith(".xlsx") ||
       name.endsWith(".xls") ||
+      name.endsWith(".csv") ||
       ALLOWED_TYPES.includes(contentType);
 
-    if (!isExcel) {
+    if (!isSupported) {
       return NextResponse.json(
-        { error: "Invalid file type. Use .xlsx or .xls." },
+        { error: "Invalid file type. Use .xlsx, .xls, or .csv." },
         { status: 400 }
       );
     }

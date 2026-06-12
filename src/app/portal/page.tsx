@@ -15,7 +15,7 @@ export default function PortalPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!file) {
-      setMessage({ type: "error", text: "Please select an Excel file." });
+      setMessage({ type: "error", text: "Please select a CSV or Excel file." });
       return;
     }
     setMessage(null);
@@ -57,7 +57,7 @@ export default function PortalPage() {
             Gift Shop Portal
           </CardTitle>
           <p className="text-center text-sm text-muted-foreground">
-            Upload your product data (Excel).
+            Upload your product data (CSV or Excel).
           </p>
         </CardHeader>
         <CardContent>
@@ -85,7 +85,7 @@ export default function PortalPage() {
             <div>
               <div className="flex items-baseline justify-between">
                 <label className="text-sm font-medium mb-1 block">
-                  Excel file (.xlsx or .xls)
+                  Data file (.csv, .xlsx or .xls)
                 </label>
                 <a
                   className="text-sm underline text-muted-foreground hover:text-foreground"
@@ -97,7 +97,7 @@ export default function PortalPage() {
               </div>
               <Input
                 type="file"
-                accept=".xlsx,.xls"
+                accept=".csv,.xlsx,.xls"
                 onChange={(e) => setFile(e.target.files?.[0] ?? null)}
               />
               {file && (

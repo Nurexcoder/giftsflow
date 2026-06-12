@@ -242,12 +242,9 @@ export default function GiftsChatPage() {
 
           <div className="text-center text-sm text-muted-foreground flex items-center justify-center gap-4">
             <Link href="/portal" className="underline">
-              Data
+              Upload Data
             </Link>
-            |
-            <Link href="/cosmetics" className="underline flex items-center gap-1">
-              <ShoppingBag className="w-3 h-3" /> View All Cosmetics
-            </Link>
+            
           </div>
         </CardHeader>
 
